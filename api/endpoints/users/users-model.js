@@ -1,8 +1,9 @@
-const db = require(dbConfig)
+const db = require("../../../data/dbConfig")
 
 module.exports={
+    getBy,
     findAll,
-    findAllById,
+    findById,
     remove,
     add,
     editById
@@ -10,12 +11,16 @@ module.exports={
 
 const table='users'
 
+function getBy(email){
+    return db(table)
+    .where(email)
+}
+
 function findAll(){
     return db(table)
 }
 
-function findAllById(id){
-     id =  Array.isArray(id) ? [id]:id
+function findById(id){
     return db(table)
     .where({ id })
     .first()
@@ -27,8 +32,14 @@ function remove(id) {
     .del()
 }
 
-function editById(id,update){
+function editById(id, update){
     return db(table)
     .where({ id })
-    .update(update, '*');
+    .update(update);
+}
+
+function add(obj, id){
+    return db(table)
+    .insert(obj)
+    .then(findById(id))
 }

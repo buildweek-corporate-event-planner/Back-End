@@ -1,5 +1,5 @@
 const router = require('express').Router()
-const dbModel = require('./events-model')
+const dbModel = require(Model)
 router
   .get('/',(req,res)=>{
     return dbModel.findAll()

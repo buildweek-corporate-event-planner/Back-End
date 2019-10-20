@@ -10,10 +10,13 @@ const authRouter = require('./endpoints/auth/auth-router')
 
 const authorize = require('./middleware/auth-middleware')
 
+const userRouter = require("../api/endpoints/users/users-router")
+
 server.use(express.json());
 server.use(helmet())
 server.use(cors())
 server.use('/api/auth', authRouter);
 server.use(authorize)
+server.use('/api/users', userRouter)
 
 module.exports = server;

@@ -17,7 +17,7 @@ router
   .get('/:id',(req,res) => {
     const {id}=req.params
     
-    dbModel.findAllById(id)
+    dbModel.findById(id)
     .then(user => {
         res.status(200).json(user)
     })
@@ -31,11 +31,12 @@ router
     const {id}=req.params
     const {body}=req
   
-    dbModel.editById(id)
+    dbModel.editById(id, body)
     .then(user => {
         res.status(200).json(body)
     })
     .catch(err => {
+        console.log(err)
         res.status(500).json(err)
     })
 })
