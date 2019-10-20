@@ -12,6 +12,13 @@ module.exports = {
       afterCreate: (conn, done) => {
         conn.run('PRAGMA foreign_keys= ON', done);
       }
+    },
+    migrations: {
+      directory: './data/migrations'
+    },
+    seeds: {
+      directory: './data/seeds'
+    }
   },
 
   staging: {
