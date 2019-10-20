@@ -5,7 +5,7 @@ exports.seed = function(knex) {
     .then(function () {
       // Inserts seed entries
       return knex('todoList').insert([
-        {list_item: "Order Pizza", completed: false, assigned_to_event: 1}
+        {list_name: "Do It", assigned_to_event: 1}
       ]);
     });
 };

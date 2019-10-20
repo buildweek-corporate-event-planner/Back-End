@@ -5,7 +5,7 @@ exports.seed = function(knex) {
     .then(function () {
       // Inserts seed entries
       return knex('shoppingList').insert([
-        {list_item: "Decorations", purchased: false, assigned_to_event: 1}
+        {list_name: "Decorations", assigned_to_event: 1}
       ]);
     });
 };
