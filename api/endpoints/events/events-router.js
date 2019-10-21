@@ -2,13 +2,28 @@ const router = require('express').Router()
 const dbModel = require('./events-model')
 
 router
+  .get('/event-details/:id/:eventId', (req,res) => {
+      const {id, eventId}=req.params
+
+      dbModel.findEventDetails(id, eventId)
+      .then(event => {
+          res.status(200).json(event)
+      })
+      .catch(err => {
+          res.status(500).json(err)
+      })
+  })
+
+router
   .get('/user/:id',(req,res)=>{
     const {id}=req.params
+
     dbModel.findAllByUsersId(id)
     .then(event => {
         res.status(200).json(event)
     })
     .catch(err => {
+        console.log(err)
         res.status(500).json({message:"this is an error:", err})
     })
 })
@@ -16,6 +31,7 @@ router
 router
   .get('/:id',(req,res)=>{
     const {id}=req.params
+
     dbModel.findAllById(id)
     .then(event => {
         res.status(200).json(event)
@@ -25,13 +41,19 @@ router
     })
 })
   
-// router
-//   .post('/',(req,res)=>{
-//     const {body}=req
-//     return dbModel.add(body)
-//     .then(p=>{res.status(201).json({message:`SUCCESS`,...p})})
-//     .catch(e=>{res.status(404).json({message:'SOMEMESSAGE', ...e})})
-// })
+router
+  .post('/',(req,res)=>{
+    const {body}=req
+
+    dbModel.add(body)
+    .then(event => {
+        res.status(201).json(event)
+    })
+    .catch(err => {
+        console.log(err)
+        res.status(500).json(err)
+    })
+})
 
 // router
 //   .put('/:id',(req,res)=>{
@@ -43,13 +65,15 @@ router
 //     .catch(e=>{res.status(404).json({message:'SOMEMESSAGE', ...e})})
 // })
 
-// router
-//   .delete('/:id',(req,res)=>{
-//     const {id}=req.params
+router
+  .delete('/:id',(req,res)=>{
+    const {id}=req.params
     
-//     return dbModel.remove(id)
-//     .then(p=>{res.status(201).json({message:`SUCCESS`,...p})})
-//     .catch(e=>{res.status(404).json({message:'SOMEMESSAGE', ...e})})
-// })
+    dbModel.remove(id)
+    .then(() => res.sendStatus(204))
+    .catch(err => {
+        res.status(500).json(err)
+    })
+})
 
 module.exports=router
