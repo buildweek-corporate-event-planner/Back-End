@@ -2,7 +2,7 @@ const db = require('../../../data/dbConfig')
 
 module.exports={
     findAll,
-    findAllByEventId,
+    findAllById,
     remove,
     add,
     editById
@@ -14,10 +14,9 @@ function findAll(){
     return db(table)
 }
 
-function findAllByEventId(id){
+function findAllById(id){
     return db(table)
-    .join('events', 'events.id', 'vendors.assigned_to_event')
-    .where('vendors.assigned_to_event', {id})
+    .where({id})
     .first()
 }
 function remove(id) {
@@ -30,8 +29,8 @@ function editById(id,update){
     .where({ id })
     .update(update);
 }
-function add(obj){
+function add(obj, id){
     return db(table)
     .insert(obj)
-    .then(findById(id))
+    .then(findAllById(id))
 }

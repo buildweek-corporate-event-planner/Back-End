@@ -75,3 +75,28 @@ updates valid event of a specified id, all of these are non-nullable
 
 #### .delete /api/events/:id
 deletes event of a specified id
+
+### /api/vendors
+
+#### .get /api/vendors/
+returns a list of all vendors
+
+#### .get /api/vendors/:id
+returns a vendor of a specified id
+
+#### .post /api/vendors/
+adds a new vendor
+>{
+	"vendor_name": "",
+	"assigned_to_event": integer
+}
+
+#### .put /api/vendors/:id
+updates vendor of a specified id
+>{
+	"vendor_name": "",
+	"assigned_to_event": integer
+}
+
+#### .delete /api/vendors/:id
+deletes vendor of a specified id
