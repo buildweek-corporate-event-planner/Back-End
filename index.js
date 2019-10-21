@@ -1,8 +1,7 @@
   
 const server = require('./api/server')
-
-const port = 8000
-
+const ENV = require('dotenv')
+const port = process.env.PORT || 8000
 //Set Globals
 // const path = require("path");
 // global.dbConfig = path.resolve(__dirname + "/data/dbConfig");
