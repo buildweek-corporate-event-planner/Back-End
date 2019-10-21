@@ -55,15 +55,20 @@ router
     })
 })
 
-// router
-//   .put('/:id',(req,res)=>{
-//     const {id}=req.params
-//     const {body}=req
+router
+  .put('/:id',(req,res)=>{
+    const {id}=req.params
+    const {body}=req
   
-//     return dbModel.editById(id)
-//     .then(p=>{res.status(200).json({message:`SUCCESS`,...p})})
-//     .catch(e=>{res.status(404).json({message:'SOMEMESSAGE', ...e})})
-// })
+    dbModel.editById(id, body)
+    .then(user => {
+        res.status(200).json(body)
+    })
+    .catch(err => {
+        console.log(err)
+        res.status(500).json(err)
+    })
+})
 
 router
   .delete('/:id',(req,res)=>{

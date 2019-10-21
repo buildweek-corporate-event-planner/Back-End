@@ -5,7 +5,7 @@ module.exports={
     findAllById,
     remove,
     add,
-    // editById
+    editById
 }
 const table='events'
 
@@ -37,11 +37,11 @@ function remove(id) {
     .del()
 }
 
-// function editById(id,update){
-//     return db(table)
-//     .where({ id })
-//     .update(update, '*');
-// }
+function editById(id, update){
+    return db(table)
+    .where({ id })
+    .update(update);
+}
 
 function add(obj){
     return db(table)
