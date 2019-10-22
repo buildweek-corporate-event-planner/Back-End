@@ -25,6 +25,20 @@ router
         res.status(500).json(err)
     })
 })
+
+router
+  .get('/events/:id',(req,res)=>{
+    const {id}=req.params
+
+    dbModel.findAllByEventId(id)
+    .then(event => {
+        res.status(200).json(event)
+    })
+    .catch(err => {
+        console.log(err)
+        res.status(500).json({message:"this is an error:", err})
+    })
+})
   
 router
   .post('/',(req,res)=>{

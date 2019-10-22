@@ -5,7 +5,8 @@ module.exports={
     findAllById,
     remove,
     add,
-    editById
+    editById,
+    findAllByEventId
 }
 
 const table='vendors'
@@ -18,6 +19,11 @@ function findAllById(id){
     return db(table)
     .where({id})
     .first()
+}
+
+function findAllByEventId(id){
+    return db(table)
+    .where('vendors.assigned_to_event', id)
 }
 function remove(id) {
     return db(table)

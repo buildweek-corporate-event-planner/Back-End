@@ -220,6 +220,21 @@ example data set:
   "assigned_to_event": 1
 }
 
+## .get /api/vendors/events/1
+how the endpoint should look:
+>https://bw-corporate-event-planner.herokuapp.com/api/vendors/events/1
+
+returns all vendors for a specified event id
+
+example data set:
+>[
+  {
+    "id": 1,
+    "vendor_name": "Alfredo's Pizza Cafe",
+    "assigned_to_event": 1
+  }
+]
+
 ## .post /api/vendors/
 how the endpoint should look:
 >https://bw-corporate-event-planner.herokuapp.com/api/vendors/
