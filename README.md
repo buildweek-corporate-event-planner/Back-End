@@ -100,3 +100,50 @@ updates vendor of a specified id
 
 #### .delete /api/vendors/:id
 deletes vendor of a specified id
+
+### /api/shopping
+
+#### .get /api/shopping/
+returns a list of all the Shopping List Titles
+
+#### .get /api/shopping/:id
+returns a shopping list title of a specified id
+
+#### .get /api/shopping/listItems/:id
+returns all shopping list items of a specified List id
+
+#### .post /api/shopping/
+adds a new shopping list title 
+>{
+	"list_name": "",
+	"assigned_to_event": integer
+}
+
+#### .post /api/shopping/listItem
+adds a new shopping list item
+>{
+	"list_item": "",
+	"purchased": false,
+	"assigned_to_shoppingList": integer
+}
+
+#### .put /api/shopping/:id
+edits a shopping list title of a specified id
+>{
+	"list_name": "",
+	"assigned_to_event": integer
+}
+
+#### .put /api/shopping/listItem/:id
+edits a shopping list item of a specified id
+>{
+	"list_item": "",
+	"purchased": false,
+	"assigned_to_shoppingList": integer
+}
+
+#### .delete /api/shopping/:id
+deletes a shopping list title of a specified id
+
+#### .delete /api/shopping/listItem/:id
+deletes a shopping list item of a specified id
