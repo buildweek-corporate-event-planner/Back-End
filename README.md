@@ -300,6 +300,26 @@ example data set:
   "assigned_to_event": 1
 }
 
+## .get /api/shopping/events/:id
+how the endpoint should look:
+>https://bw-corporate-event-planner.herokuapp.com/api/shopping/events/1
+
+returns a shopping list title of a specified event id
+
+example data set:
+>[
+  {
+    "id": 1,
+    "list_name": "Decorations",
+    "assigned_to_event": 1
+  },
+  {
+    "id": 2,
+    "list_name": "hello",
+    "assigned_to_event": 1
+  }
+]
+
 ## .get /api/shopping/listItems/:id
 how the endpoint should look:
 >https://bw-corporate-event-planner.herokuapp.com/api/shopping/listItems/1
@@ -407,6 +427,19 @@ example data set:
   "list_name": "Hello2",
   "assigned_to_event": 1
 }
+
+## .get /api/todo/events/:id
+how the endpoint should look:
+>https://bw-corporate-event-planner.herokuapp.com/api/todo/events/1
+
+returns a todo list title of a specified event id
+
+example data set:
+>[{
+  "id": 2,
+  "list_name": "hello",
+  "assigned_to_event": 1
+}]
 
 ## .get /api/todo/listItems/:id
 how the endpoint should look:
