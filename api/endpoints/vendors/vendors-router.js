@@ -44,7 +44,7 @@ router
     const {id}=req.params
     const {body}=req
   
-    dbModel.editById(id)
+    dbModel.editById(id, body)
     .then(ven => {
         res.status(200).json(body)
     })

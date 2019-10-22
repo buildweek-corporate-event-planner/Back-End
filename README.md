@@ -147,3 +147,50 @@ deletes a shopping list title of a specified id
 
 #### .delete /api/shopping/listItem/:id
 deletes a shopping list item of a specified id
+
+### /api/todo
+
+#### .get /api/todo/
+returns a list of all the Todo List Titles
+
+#### .get /api/todo/:id
+returns a todo list title of a specified id
+
+#### .get /api/todo/listItems/:id
+returns all todo list items of a specified List id
+
+#### .post /api/todo/
+adds a new todo list title 
+>{
+	"list_name": "",
+	"assigned_to_event": integer
+}
+
+#### .post /api/todo/listItem
+adds a new todo list item
+>{
+	"list_item": "",
+	"completed": false,
+	"assigned_to_todoList": integer
+}
+
+#### .put /api/todo/:id
+edits a todo list title of a specified id
+>{
+	"list_name": "",
+	"assigned_to_event": integer
+}
+
+#### .put /api/todo/listItem/:id
+edits a todo list item of a specified id
+>{
+	"list_item": "",
+	"completed": false,
+	"assigned_to_todoList": integer
+}
+
+#### .delete /api/todo/:id
+deletes a todo list title of a specified id
+
+#### .delete /api/todo/listItem/:id
+deletes a todo list item of a specified id
