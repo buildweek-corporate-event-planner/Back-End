@@ -9,7 +9,8 @@ module.exports={
     addItem,
     findAllItemsByListId,
     removeListItem,
-    editItemByItemId
+    editItemByItemId,
+    findAllByEventId
 }
 
 const table='todoList'
@@ -22,6 +23,11 @@ function findAllById(id){
     return db(table)
     .where('todoList.id', id)
     .first()
+}
+
+function findAllByEventId(id){
+    return db(table)
+    .where('todoList.assigned_to_event', id)
 }
 
 function findAllItemsByListId(id){

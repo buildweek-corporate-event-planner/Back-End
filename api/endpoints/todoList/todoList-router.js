@@ -26,6 +26,19 @@ router
 })
 
 router
+  .get('/events/:id',(req,res)=>{
+    const {id}=req.params
+
+    dbModel.findAllByEventId(id)
+    .then(todo => {
+        res.status(200).json(todo)
+    })
+    .catch(err => {
+        res.status(500).json(err)
+    })
+})
+
+router
   .get('/listItems/:id', (req,res)=>{
     const {id}=req.params
 
