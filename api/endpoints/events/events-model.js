@@ -28,7 +28,6 @@ function findAllByUsersId(id){
 function findAllById(id){
     return db(table)
     .where({id})
-    .first()
 }
 
 function remove(id) {
